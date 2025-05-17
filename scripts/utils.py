@@ -1,6 +1,26 @@
-
+import csv
+import sqlite3
 import os
 import pandas as pd
+
+def preprocess_text_column(col:pd.Series) -> pd.Series:
+    """
+    Arregla texto de una columna que contiene caracteres especiales
+    y espacios.
+    """
+
+    ## Remove special chars
+    series = col.replace(r'[^\w\sáéíóúÁÉÍÓÚñÑ]', '', regex=True)
+
+    ## Remove double white spaces
+    series = series.replace(r'\s+', ' ', regex=True)
+    series = series.str.strip()
+    series = series.str.lower()
+
+    ## Capitalize what columns cointains. "valle del cauca" -> "Valle Del Cauca"
+    series = series.apply(lambda t: ' '.join([l.capitalize() for l in t.split(' ')]))
+    return series
+
 
 def preprocess_read_reps_data(data_path:str) -> pd.DataFrame:
     """
@@ -30,5 +50,25 @@ def preprocess_read_reps_data(data_path:str) -> pd.DataFrame:
     return df
 
 
-def create_dir():
-    pass
+def crear_conexion(db_file):
+    """Crea una conexión a la base de datos SQLite especificada por db_file.
+    :param db_file: Ruta del archivo de la base de datos.
+    :return: Objeto de conexión o None.
+    """
+    conn = None
+    try:
+        conn = sqlite3.connect(db_file)
+        return conn
+    except sqlite3.Error as e:
+        print(f"Error al conectar a la base de datos: {e}")
+    return conn
+
+
+## Fix MPIO codes
+def fix_divipola_codes(series:pd.Series, fix_len:int=4) -> pd.Series:
+    """
+    
+    """
+    series = series.astype(str)
+    series = series.apply(lambda t: f'0{t}' if len(t) == fix_len else t)
+    return series
