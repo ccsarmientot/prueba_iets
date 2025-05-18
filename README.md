@@ -4,10 +4,12 @@ Este proyecto tiene como objetivo gestionar archivos CSV, convertirlos a bases d
 
 ## Estructura del Proyecto
 
+-   **`dashboard/`**: Contiene un archivo pbix generado para visualizar resultados.
 -   **`data/raw/`**: Contiene los archivos CSV originales.
 -   **`data/processed/`**: Almacena la base de datos SQLite creada y los archivos limpios.
 -   **`notebooks/`**: Alberga los Jupyter Notebooks para la transformación y el análisis.
-    -   `analisis_exploratorio.ipynb`: Carga datos usando pandas y transforma datos con SQL.
+-   **`docs/`**: Contiene documentos de producción de análisis de información
+    -   `analisis_exploratorio.ipynb`: Contiene toda la lógica de programación y pruebas realizadas para generar el archivo main.py
 -   **`scripts/`**: Contiene scripts de Python reutilizables.
     -   `utils.py`: Contiene funciones de Python reutilizables.
     -   `generate_logs.py`: Tiene la lógica para generar logs interpretables
@@ -22,9 +24,9 @@ Este proyecto tiene como objetivo gestionar archivos CSV, convertirlos a bases d
 3.  El mismo archivo `main.py` orquesta la lectura, la limpieza y la creación de tablas en la base de datos
 4.  `main.py` hace el procesamiento para las tablas de Sedes (fuente REPS), Servicios (fuente REPS) y Municipios (Fuente IETS)
 5.  Una vez cargada la información a la base de datos, se genera un query de SQL cuya lógica se puede ver en `scripts/extract_sql_data.py`
-6.  Los resultados del query de información se almacenan en `data/processed/conteos_sedes.csv` y son útiles para alimentar visualizaciones
+6.  Los resultados del query de información se almacenan en `data/processed/conteos_sedes.csv` y son útiles para alimentar visualizaciones del archivo contenido en la carpeta **`dashboard/`**
 
-## requerimientos
+## Requerimientos
 
 1.  Python > 3.11
 2.  Bibliotecas necesarias: `pandas`.
