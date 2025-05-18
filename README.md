@@ -8,8 +8,8 @@ Este proyecto tiene como objetivo gestionar archivos CSV, convertirlos a bases d
 -   **`data/raw/`**: Contiene los archivos CSV originales.
 -   **`data/processed/`**: Almacena la base de datos SQLite creada y los archivos limpios.
 -   **`notebooks/`**: Alberga los Jupyter Notebooks para la transformación y el análisis.
--   **`docs/`**: Contiene documentos de producción de análisis de información
     -   `analisis_exploratorio.ipynb`: Contiene toda la lógica de programación y pruebas realizadas para generar el archivo main.py
+-   **`docs/`**: Contiene documentos de producción de análisis de información
 -   **`scripts/`**: Contiene scripts de Python reutilizables.
     -   `utils.py`: Contiene funciones de Python reutilizables.
     -   `generate_logs.py`: Tiene la lógica para generar logs interpretables
