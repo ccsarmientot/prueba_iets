@@ -1,4 +1,4 @@
-# Proyecto de Gestión y Análisis de Datos CSV a SQLite
+# Indice de prestación servicios de especificidad oncológica y de trasplante renal en Colombia
 
 Este proyecto tiene como objetivo gestionar archivos CSV, convertirlos a bases de datos SQLite, realizar transformaciones y preprocesamiento con SQL, y finalmente guardar los datos limpios para crear visualizaciones. El objetivo de negocio es poder realizar la verificación de cantidades de sedes con especificidades **Oncológicas** y de **Transplante renal** con respecto a la población que tienen distintos municipios, departamentos y regiones.
 
